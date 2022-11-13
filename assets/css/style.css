@@ -1,0 +1,155 @@
+:root {
+    --color-accent-light: hsl(250, 100%, 85%);
+    --color-accent-dark: hsl(250, 80%, 65%);
+}
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    font-family: "Orbitron", sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    font-size: 1rem;
+    background-color: hsl(0, 0%, 5%);
+    color: hsl(0, 0%, 100%);
+    display: flex;
+    flex-direction: column;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 1.15rem;
+    letter-spacing: 0.05em;
+}
+
+h1 {
+    margin: 0;
+    font-weight: normal;
+    font-size: 2.5rem;
+    color: var(--color-accent-dark);
+}
+
+/* links */
+
+a {
+    color: hsl(0, 0%, 60%);
+    text-decoration: none;
+}
+
+a:hover {
+    color: hsl(0, 0%, 85%);
+}
+
+.game {
+    flex: 1;
+    padding-top: 4em;
+    padding-bottom: 4em;
+}
+
+header,
+section,
+.banner {
+    padding: 0 2em;
+}
+
+header {
+    text-align: center;
+    padding: 1em;
+}
+
+.banner {
+    background-color: var(--color-accent-light);
+    animation: changeBgColor 3s forwards;
+    padding: 1em;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    text-align: center;
+}
+
+.cell {
+    color: var(--color-accent-light);
+    background-color: hsl(0, 0%, 5%);
+    font-size: clamp(0.5rem, 6vw, 2.75rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 100%;
+    padding: 0.2em;
+    user-select: none;
+}
+
+.cell.human {
+    color: var(--color-accent-dark);
+}
+
+.cell:hover {
+    /* color: var(--color-accent-light); */
+}
+
+.cell-hover.cell:hover,
+.cell-hover#start:hover {
+    background-color: hsl(0, 0%, 20%);
+    cursor: pointer;
+}
+
+/* responsive game container */
+
+.outer {
+    position: relative;
+    max-width: 30rem;
+    min-width: 5rem;
+    margin-left: auto;
+    margin-right: auto;    
+}
+
+.outer:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: 100%;
+}
+
+.outer > .inner {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.inner {
+    background-color: hsl(0, 0%, 40%);
+    display: grid;
+    gap: 1px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+/* footer */
+
+footer {
+    color: hsl(0, 0%, 40%);
+    padding: 1em;
+    text-align: center;
+}
+
+@media (max-width: 600px) {
+    .outer {
+        width: 100%;
+        max-width: initial;
+        border-bottom: 1px solid hsl(0, 0%, 40%);
+    }
+
+    .game {
+        padding: 0;
+        margin: 0;
+    }
+}
